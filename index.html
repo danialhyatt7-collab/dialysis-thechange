@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Change — Accountability &amp; Reform after a Dialysis Death | Hearts International Hospital, Rawalpindi</title>
+<meta name="description" content="A patient-safety dossier examining the chain of negligence in a preventable dialysis death on 27 December 2025, the people accountable, the complete CCTV footage required, and the practices and SOPs that would prevent it ever happening again — aligned with a patient-centric mission." />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Change — Accountability &amp; Reform after a Dialysis Death" />
+<meta property="og:description" content="Negligence, accountability, complete CCTV footage, and the SOPs that would prevent a repeat — a patient-centric reform dossier." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0b0c10;
+    --bg-2:#111319;
+    --paper:#15171f;
+    --ink:#f3efe7;
+    --muted:#a9a59a;
+    --faint:#6f6c65;
+    --line:rgba(225,210,180,.12);
+    --panel:rgba(28,26,30,.55);
+    --panel-line:rgba(225,200,150,.14);
+    --amber:#f0a73c;          /* accountability / warning */
+    --amber-soft:#ffd27d;
+    --ember:#e2603f;          /* negligence */
+    --emerald:#5fd0a0;        /* reform / practices */
+    --maxw:1100px;
+    --display:'Manrope',sans-serif;
+    --serif:'Newsreader',Georgia,serif;
+    --body:'Manrope',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    font-weight:400;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* warm ambient wash — distinct from the cool original */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(55% 45% at 15% 12%, rgba(240,167,60,.14), transparent 60%),
+      radial-gradient(50% 55% at 88% 88%, rgba(95,208,160,.10), transparent 62%),
+      linear-gradient(180deg,#0b0c10 0%,#101015 50%,#0b0c10 100%);
+  }
+  /* faint diagonal hatch for a "case file" texture */
+  body::after{
+    content:"";position:fixed;inset:0;z-index:-1;opacity:.5;
+    background-image:repeating-linear-gradient(135deg,rgba(225,210,180,.025) 0 1px,transparent 1px 22px);
+    mask-image:radial-gradient(80% 80% at 50% 25%,#000,transparent 92%);
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(11,12,16,.66);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:13px;font-family:var(--display);font-weight:800;letter-spacing:.06em;font-size:.92rem}
+  .brand .mark{
+    width:30px;height:30px;border-radius:8px;flex:0 0 auto;
+    background:linear-gradient(135deg,var(--amber),var(--ember));
+    box-shadow:0 0 18px rgba(240,167,60,.45);
+    display:grid;place-items:center;color:#1a0f06;font-weight:800;font-size:.85rem;
+  }
+  .brand small{display:block;font-weight:500;font-size:.6rem;letter-spacing:.32em;color:var(--faint);text-transform:uppercase}
+  .nav-links{display:flex;gap:30px;list-style:none}
+  .nav-links a{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transition:color .25s}
+  .nav-links a:hover{color:var(--amber)}
+  .nav-cta{
+    font-family:var(--display);font-weight:600;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+    border:1px solid var(--panel-line);border-radius:8px;padding:11px 20px;color:var(--ink);transition:.25s;
+  }
+  .nav-cta:hover{border-color:var(--amber);box-shadow:0 0 20px rgba(240,167,60,.22);color:var(--amber)}
+  .menu-btn{display:none;background:none;border:0;color:var(--ink);font-size:1.5rem;cursor:pointer}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:96px 0 70px}
+  .file-tab{
+    display:inline-flex;align-items:center;gap:12px;font-family:var(--display);font-weight:600;
+    font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);
+    border:1px solid var(--panel-line);border-radius:40px;padding:8px 16px;margin-bottom:26px;
+  }
+  .file-tab .pip{width:8px;height:8px;border-radius:50%;background:var(--ember);box-shadow:0 0 10px var(--ember)}
+  .hero h1{
+    font-family:var(--serif);font-weight:500;line-height:1.06;
+    font-size:clamp(2.4rem,6.2vw,4.7rem);letter-spacing:-.01em;max-width:16ch;
+  }
+  .hero h1 em{font-style:italic;color:var(--amber-soft)}
+  .hero p.lead{max-width:60ch;color:var(--muted);font-size:1.08rem;margin-top:26px}
+  .hero .meta{margin-top:26px;color:var(--faint);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-family:var(--display);font-weight:600}
+  .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+  .btn{
+    font-family:var(--display);font-weight:600;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
+    padding:15px 26px;border-radius:9px;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:10px;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--amber),var(--ember));color:#1a0f06;font-weight:700;box-shadow:0 10px 30px rgba(226,96,63,.3)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(226,96,63,.45)}
+  .btn-ghost{border:1px solid var(--panel-line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--emerald);color:var(--emerald)}
+
+  /* ---------- key-fact rail ---------- */
+  .rail{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(17,19,25,.5);backdrop-filter:blur(6px)}
+  .rail .grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .fact{padding:28px 22px;border-right:1px solid var(--line)}
+  .fact:last-child{border-right:0}
+  .fact .n{font-family:var(--serif);font-weight:500;font-size:1.55rem;color:var(--amber-soft)}
+  .fact .l{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-top:8px;font-family:var(--display);font-weight:600}
+
+  /* ---------- sections ---------- */
+  section.block{padding:84px 0;position:relative}
+  .section-head{margin-bottom:42px;max-width:74ch}
+  .kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px}
+  .kicker::before{content:"";width:26px;height:2px;border-radius:2px}
+  .k-ember{color:var(--ember)} .k-ember::before{background:var(--ember)}
+  .k-amber{color:var(--amber)} .k-amber::before{background:var(--amber)}
+  .k-emerald{color:var(--emerald)} .k-emerald::before{background:var(--emerald)}
+  .section-head h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.01em;line-height:1.12}
+  .section-head p{color:var(--muted);margin-top:16px}
+
+  .panel{background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;padding:30px;backdrop-filter:blur(8px)}
+
+  /* timeline (horizontal-step feel via left rule) */
+  .steps{display:grid;gap:0;border-left:2px solid rgba(240,167,60,.35);margin-left:8px}
+  .step{position:relative;padding:0 0 30px 30px}
+  .step:last-child{padding-bottom:0}
+  .step::before{content:"";position:absolute;left:-9px;top:3px;width:16px;height:16px;border-radius:4px;background:var(--bg);border:2px solid var(--amber);transform:rotate(45deg)}
+  .step.bad::before{border-color:var(--ember);box-shadow:0 0 12px rgba(226,96,63,.5)}
+  .step .t{font-family:var(--display);font-weight:700;font-size:.82rem;letter-spacing:.04em;color:var(--amber)}
+  .step.bad .t{color:var(--ember)}
+  .step .b{color:var(--muted);margin-top:6px;font-size:.98rem}
+
+  /* analysis grid (negligence) */
+  .analysis{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:6px}
+  .ax{background:var(--panel);border:1px solid var(--panel-line);border-radius:14px;padding:24px;transition:.3s}
+  .ax:hover{transform:translateY(-3px);border-color:rgba(226,96,63,.4)}
+  .ax h3{font-family:var(--display);font-weight:700;font-size:1.04rem;margin-bottom:8px}
+  .ax h3 .tick{color:var(--ember);font-family:var(--serif);font-style:italic;margin-right:8px}
+  .ax p{color:var(--muted);font-size:.95rem}
+
+  /* accountability ladder */
+  .ladder{display:grid;gap:14px}
+  .who{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:start;padding:24px;background:var(--panel);border:1px solid var(--panel-line);border-radius:14px}
+  .who .role{font-family:var(--display);font-weight:800;font-size:1.05rem}
+  .who .role small{display:block;font-weight:500;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-top:4px}
+  .who .why{color:var(--muted);font-size:.95rem}
+  .who .why b{color:var(--ink);font-weight:600}
+  .badge{font-family:var(--display);font-weight:700;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:30px;white-space:nowrap;align-self:start}
+  .b-primary{background:rgba(226,96,63,.16);color:var(--ember);border:1px solid rgba(226,96,63,.35)}
+  .b-shared{background:rgba(240,167,60,.14);color:var(--amber);border:1px solid rgba(240,167,60,.32)}
+  .b-system{background:rgba(95,208,160,.12);color:var(--emerald);border:1px solid rgba(95,208,160,.3)}
+  .step-no{font-family:var(--serif);font-weight:500;font-size:1.6rem;color:var(--faint);min-width:1.6ch}
+
+  /* footage spec sheet */
+  .spec{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;align-items:start}
+  .spec .sheet{background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;overflow:hidden}
+  .spec .sheet h3{font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);padding:20px 24px;border-bottom:1px solid var(--panel-line)}
+  .spec .row{display:flex;justify-content:space-between;gap:16px;padding:15px 24px;border-bottom:1px solid var(--line);font-size:.94rem}
+  .spec .row:last-child{border-bottom:0}
+  .spec .row span:first-child{color:var(--faint)}
+  .spec .row span:last-child{color:var(--ink);font-weight:600;text-align:right}
+  .chain-of-custody{background:linear-gradient(135deg,rgba(45,20,14,.5),rgba(28,26,30,.45));border:1px solid rgba(226,96,63,.3);border-radius:16px;padding:28px}
+  .chain-of-custody .tag{display:block;font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ember);margin-bottom:14px}
+  .chain-of-custody ul{list-style:none;display:grid;gap:12px}
+  .chain-of-custody li{color:var(--muted);font-size:.95rem;padding-left:26px;position:relative}
+  .chain-of-custody li::before{content:"▸";position:absolute;left:0;color:var(--ember)}
+  .chain-of-custody li b{color:var(--ink);font-weight:600}
+
+  /* SOP roadmap */
+  .sops{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .sop{background:var(--panel);border:1px solid var(--panel-line);border-radius:14px;padding:26px;transition:.3s}
+  .sop:hover{transform:translateY(-3px);border-color:rgba(95,208,160,.4);box-shadow:0 14px 36px rgba(0,0,0,.35)}
+  .sop .ph{font-family:var(--display);font-weight:700;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--emerald);margin-bottom:12px}
+  .sop h3{font-family:var(--display);font-weight:700;font-size:1.08rem;margin-bottom:8px}
+  .sop p{color:var(--muted);font-size:.94rem}
+  .sop ul{margin:12px 0 0;padding-left:18px;color:var(--muted);font-size:.92rem}
+  .sop li{margin-bottom:6px}
+
+  /* benefit / trust banner */
+  .trust{background:linear-gradient(135deg,rgba(16,38,30,.6),rgba(28,26,30,.45));border:1px solid rgba(95,208,160,.28);border-radius:18px;padding:38px}
+  .trust .mission{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--emerald);margin-bottom:18px}
+  .trust .bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
+  .trust .bgrid h4{font-family:var(--display);font-weight:700;font-size:1rem;margin-bottom:6px}
+  .trust .bgrid p{color:var(--muted);font-size:.92rem}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:64px 0 46px;margin-top:24px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end}
+  footer h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.6rem,3vw,2.2rem)}
+  footer p{color:var(--muted);max-width:50ch;margin-top:14px}
+  .foot-meta{font-size:.8rem;color:var(--faint);line-height:2}
+  .foot-meta a:hover{color:var(--amber)}
+  .legal{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);font-size:.74rem;color:var(--faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:880px){
+    .nav-links,.nav-cta{display:none}
+    .menu-btn{display:block}
+    .rail .grid{grid-template-columns:repeat(2,1fr)}
+    .fact:nth-child(2){border-right:0}
+    .analysis,.sops,.spec,.trust .bgrid{grid-template-columns:1fr}
+    .who{grid-template-columns:auto 1fr;gap:14px}
+    .who .badge{grid-column:1 / -1}
+    .foot-grid{grid-template-columns:1fr}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <div class="brand">
+      <span class="mark">TC</span>
+      <span>THE&nbsp;CHANGE<small>Patient-Safety Dossier</small></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#negligence">Negligence</a></li>
+      <li><a href="#accountable">Accountable</a></li>
+      <li><a href="#footage">Footage</a></li>
+      <li><a href="#practices">Practices &amp; SOPs</a></li>
+    </ul>
+    <a class="nav-cta" href="#footage">Demand the footage →</a>
+    <button class="menu-btn" aria-label="Menu" id="menuBtn">≡</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap reveal">
+    <div class="file-tab"><span class="pip"></span> Case dossier · Preventable death · 27 Dec 2025</div>
+    <h1>It was not bad luck. It was a <em>chain of decisions</em> — and every link had a name.</h1>
+    <p class="lead">A patient arrived in a 7/7 emergency and was admitted under a physician who already knew
+      the nephrologist had left the city. What followed was not one mistake but a sequence of avoidable
+      failures. This dossier names where each link broke, asks for the complete CCTV record, and sets out
+      the practices that would make sure it never happens to another family.</p>
+    <div class="meta">Hearts International Hospital · Rawalpindi · admitted 17:00, 26 Dec — died 27 Dec 2025</div>
+    <div class="actions">
+      <a class="btn btn-primary" href="#accountable">See who was accountable →</a>
+      <a class="btn btn-ghost" href="#practices">Read the reforms</a>
+    </div>
+  </div>
+</section>
+
+<!-- KEY FACTS -->
+<div class="rail">
+  <div class="wrap"><div class="grid">
+    <div class="fact"><div class="n">17:00 · 26 Dec</div><div class="l">Admitted — nephrologist already out of city</div></div>
+    <div class="fact"><div class="n">09:00 · 27 Dec</div><div class="l">Nephrologist back in town</div></div>
+    <div class="fact"><div class="n">13:00 · 27 Dec</div><div class="l">Dialysis finally started — 4 hrs later</div></div>
+    <div class="fact"><div class="n">~2 min</div><div class="l">Until the patient was left unmonitored</div></div>
+  </div></div>
+</div>
+
+<!-- NEGLIGENCE -->
+<section class="block" id="negligence">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker k-ember">Negligence</span>
+      <h2>Four windows where the patient could have been saved — and each was missed</h2>
+      <p>A 7/7 creatinine and potassium reading is a medical emergency: potassium that high can stop the
+        heart within hours. From admission to collapse there were repeated, foreseeable points to act. None
+        were taken in time. Below is the decision trail, then the specific lapses.</p>
+    </div>
+
+    <div class="panel reveal" style="margin-bottom:34px">
+      <div class="steps">
+        <div class="step bad">
+          <div class="t">17:00 · 26 Dec — Admission without disclosure</div>
+          <div class="b">A critically ill 7/7 patient is admitted on the promise of <b>urgent</b> dialysis. The
+            admitting physician already knows the nephrologist has left the city — and does not say so, does
+            not arrange a covering specialist, and does not offer transfer.</div>
+        </div>
+        <div class="step bad">
+          <div class="t">Overnight — No coverage, no contingency</div>
+          <div class="b">Through the most dangerous hours the patient has no nephrology cover and no emergency
+            dialysis pathway. Time-critical treatment simply waits for one person to drive back.</div>
+        </div>
+        <div class="step bad">
+          <div class="t">09:00 · 27 Dec — Specialist returns, treatment still waits</div>
+          <div class="b">The nephrologist is back in the building, yet dialysis does not begin. <b>Four more
+            hours</b> pass with the patient still in a 7/7 emergency.</div>
+        </div>
+        <div class="step bad">
+          <div class="t">13:00 · 27 Dec — Treatment starts, supervision ends</div>
+          <div class="b">The nephrologist reviews the file for about a minute and leaves. The technician starts
+            the machine and leaves within ~2 minutes. Visible bleeding goes unrecognised; the patient
+            collapses into hypovolemic shock; the emergency response has no dialysis expertise on hand. The
+            patient does not survive.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="analysis">
+      <div class="ax reveal"><h3><span class="tick">i.</span>Treated as routine, not as an emergency</h3><p>Life-threatening labs demand a rapid, time-stamped pathway to dialysis. Instead the case moved at the pace of one person's travel and availability.</p></div>
+      <div class="ax reveal"><h3><span class="tick">ii.</span>Consent built on a half-truth</h3><p>The family agreed to admission believing urgent dialysis was available. Withholding that the specialist was away made informed choice — including transfer elsewhere — impossible.</p></div>
+      <div class="ax reveal"><h3><span class="tick">iii.</span>Active treatment left unattended</h3><p>Dialysis is a high-risk procedure. Leaving the patient within minutes, with no continuous qualified monitoring, removed the one safeguard that catches bleeding early.</p></div>
+      <div class="ax reveal"><h3><span class="tick">iv.</span>Deterioration caught too late</h3><p>Bleeding and shock are reversible if seen early. They were recognised only after collapse, and the response lacked the dialysis-specific skill the moment demanded.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOUNTABLE -->
+<section class="block" id="accountable">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker k-amber">Accountable</span>
+      <h2>Every link in the chain had a name and a duty</h2>
+      <p>Accountability is not blame for its own sake — it is the precondition for change. These roles each
+        held a duty of care at a specific moment. Each is listed once, with the single decision that mattered.</p>
+    </div>
+
+    <div class="ladder reveal">
+      <div class="who">
+        <div class="step-no">1</div>
+        <div>
+          <div class="role">Admitting Physician<small>First duty of care · 17:00, 26 Dec</small></div>
+          <div class="why">Admitted a 7/7 emergency patient <b>knowing the nephrologist was out of the city</b>,
+            without being transparent with the family, without arranging covering specialist cover, and without
+            offering timely transfer to a centre that could dialyse immediately.</div>
+        </div>
+        <span class="badge b-primary">Primary · the first link</span>
+      </div>
+
+      <div class="who">
+        <div class="step-no">2</div>
+        <div>
+          <div class="role">Nephrologist<small>Specialist responsible for dialysis</small></div>
+          <div class="why">Returned at <b>09:00</b> yet dialysis did not start until <b>13:00</b> — an unexplained
+            four-hour gap in an emergency — then was present at the bedside for roughly a minute before leaving
+            an active, high-risk session.</div>
+        </div>
+        <span class="badge b-primary">Primary</span>
+      </div>
+
+      <div class="who">
+        <div class="step-no">3</div>
+        <div>
+          <div class="role">Dialysis Technician<small>Operating the machine</small></div>
+          <div class="why">Initiated dialysis and <b>left within ~2 minutes</b>, leaving the patient on active
+            treatment without continuous qualified supervision, and <b>did not return</b> during the crisis.</div>
+        </div>
+        <span class="badge b-shared">Shared</span>
+      </div>
+
+      <div class="who">
+        <div class="step-no">4</div>
+        <div>
+          <div class="role">Floor Nursing &amp; Bedside Staff<small>Present nearby</small></div>
+          <div class="why">Staff were in the vicinity but not actively monitoring; <b>visible significant bleeding
+            went unrecognised</b> and shock was identified only after the patient had collapsed.</div>
+        </div>
+        <span class="badge b-shared">Shared</span>
+      </div>
+
+      <div class="who">
+        <div class="step-no">5</div>
+        <div>
+          <div class="role">Emergency / Code Response<small>Called after collapse</small></div>
+          <div class="why">The response arrived <b>without dialysis-specific expertise</b> at the one moment it
+            was essential — neither technician nor nephrologist present — losing critical minutes.</div>
+        </div>
+        <span class="badge b-shared">Shared</span>
+      </div>
+
+      <div class="who">
+        <div class="step-no">6</div>
+        <div>
+          <div class="role">Hospital Administration / COO<small>System &amp; governance</small></div>
+          <div class="why">Permitted admissions for time-critical dialysis with <b>no on-call nephrology cover and
+            no emergency dialysis pathway</b> — and, after the death, acknowledged the CCTV yet <b>refused a copy</b>
+            citing an unwritten "policy."</div>
+        </div>
+        <span class="badge b-system">System failure</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTAGE -->
+<section class="block" id="footage">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker k-ember">Requirement: Complete Footage</span>
+      <h2>The whole recording — from CVP connection to the end. Nothing trimmed.</h2>
+      <p>The hospital has confirmed the footage exists and has shown it. A copy was then refused on an
+        unwritten policy. Selective viewing is not evidence. What is required is the <b>complete, continuous,
+        unedited record</b> covering the entire event.</p>
+    </div>
+
+    <div class="spec reveal">
+      <div class="sheet">
+        <h3>Footage specification</h3>
+        <div class="row"><span>Start point</span><span>Moment of CVP connection</span></div>
+        <div class="row"><span>End point</span><span>End of the session / resuscitation</span></div>
+        <div class="row"><span>Continuity</span><span>Unbroken — no gaps or cuts</span></div>
+        <div class="row"><span>Cameras</span><span>All angles covering the bed &amp; bay</span></div>
+        <div class="row"><span>Audio</span><span>Included where recorded</span></div>
+        <div class="row"><span>Metadata</span><span>Original timestamps intact</span></div>
+        <div class="row"><span>Format</span><span>Native export + verifiable copy</span></div>
+        <div class="row"><span>Recipients</span><span>Family &amp; Punjab Healthcare Commission</span></div>
+      </div>
+      <div class="chain-of-custody">
+        <span class="tag">⚠ Why a copy — not just a viewing</span>
+        <ul>
+          <li><b>Preserve it now.</b> Issue a legal hold so nothing is overwritten on the retention cycle.</li>
+          <li><b>Provide a copy in writing.</b> If a policy bars release, produce that written policy; if none exists, release the footage.</li>
+          <li><b>Protect the chain of custody.</b> Hashes/timestamps so the record is provably complete and unaltered.</li>
+          <li><b>Independent review.</b> Hand the full file to the regulator, not edited highlights chosen by the establishment.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICES & SOPs -->
+<section class="block" id="practices">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker k-emerald">Practices &amp; SOPs</span>
+      <h2>How to make sure this never happens again — and rebuild trust while doing it</h2>
+      <p>Reform is not punishment; it is protection. Each safeguard below closes one of the gaps above, and
+        each one also strengthens the hospital — fewer adverse events, cleaner audits, and a name patients
+        choose with confidence.</p>
+    </div>
+
+    <div class="sops reveal">
+      <div class="sop">
+        <div class="ph">SOP 01 · Access &amp; coverage</div>
+        <h3>Never admit a time-critical case without confirmed cover</h3>
+        <p>Admission for emergency dialysis is conditional on a named, available specialist or an instant transfer plan.</p>
+        <ul>
+          <li>24/7 on-call nephrology roster with a named backup.</li>
+          <li>If no cover, transparent transfer offered <em>before</em> admission.</li>
+          <li>Hard stop: no "we'll manage" admissions for 7/7 emergencies.</li>
+        </ul>
+      </div>
+
+      <div class="sop">
+        <div class="ph">SOP 02 · Transparency &amp; consent</div>
+        <h3>Tell families the truth, in writing, up front</h3>
+        <p>Informed consent must include who will treat, when, and what the alternatives are.</p>
+        <ul>
+          <li>Written disclosure of specialist availability at admission.</li>
+          <li>Documented option to transfer to an immediately-capable centre.</li>
+          <li>Family receives a signed copy — not a verbal assurance.</li>
+        </ul>
+      </div>
+
+      <div class="sop">
+        <div class="ph">SOP 03 · Time-to-treatment</div>
+        <h3>Treat 7/7 as the clock-starts emergency it is</h3>
+        <p>Critical labs trigger a measured, audited pathway — not an open-ended wait.</p>
+        <ul>
+          <li>Target door-to-dialysis time for hyperkalaemia, tracked per case.</li>
+          <li>Bridging therapy started immediately while dialysis is arranged.</li>
+          <li>Any delay past target auto-escalates to the medical director.</li>
+        </ul>
+      </div>
+
+      <div class="sop">
+        <div class="ph">SOP 04 · Continuous monitoring</div>
+        <h3>No patient is left alone on active dialysis</h3>
+        <p>A qualified person stays at the chair for the full session — this is the safeguard that catches bleeding early.</p>
+        <ul>
+          <li>1:1 or close ratio trained presence throughout the run.</li>
+          <li>Visible-site checks &amp; vitals at fixed intervals, logged.</li>
+          <li>Bleed/disconnect alarms and line checks built into the routine.</li>
+        </ul>
+      </div>
+
+      <div class="sop">
+        <div class="ph">SOP 05 · Rapid rescue</div>
+        <h3>An emergency response that actually knows dialysis</h3>
+        <p>The team that arrives must be able to manage the machine, the access, and the shock.</p>
+        <ul>
+          <li>Code protocol that summons dialysis-competent staff first.</li>
+          <li>Drilled hypovolemic-shock &amp; bleeding response at the chair.</li>
+          <li>Quarterly simulation; competency signed off and refreshed.</li>
+        </ul>
+      </div>
+
+      <div class="sop">
+        <div class="ph">SOP 06 · Evidence &amp; openness</div>
+        <h3>A clear, written CCTV &amp; records policy</h3>
+        <p>Families and regulators get the complete record — by default, not by fight.</p>
+        <ul>
+          <li>Published policy: how to request footage, timelines, and format.</li>
+          <li>Automatic legal hold the moment an adverse event is reported.</li>
+          <li>Duty-of-candour disclosure within a fixed number of days.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="trust reveal" style="margin-top:34px">
+      <div class="mission">"A patient-centric approach" — measured by what we do on the hardest day, not the brochure.</div>
+      <p style="color:var(--muted);max-width:70ch">These changes are not a cost; they are the foundation of the
+        hospital's reputation. A patient-centric mission is proven in the gaps above being closed — and that
+        proof becomes the institution's strongest, most durable asset.</p>
+      <div class="bgrid" style="margin-top:26px">
+        <div><h4>Solid ground</h4><p>Documented coverage, consent and monitoring turn "trust us" into a defensible, auditable standard of care.</p></div>
+        <div><h4>Future trust</h4><p>Openness with families and regulators — including footage — signals an institution with nothing to hide and everything to protect.</p></div>
+        <div><h4>A good name</h4><p>Hospitals remembered for how honestly they faced their worst day earn the loyalty no marketing can buy.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid reveal">
+      <div>
+        <h2>Accountability today, so it is prevention tomorrow.</h2>
+        <p>This dossier documents a patient-safety concern in the words of the family. It seeks honest
+          accountability, the complete preservation of evidence, and the reforms that protect every patient
+          who comes after.</p>
+      </div>
+      <div class="foot-meta">
+        <div><strong style="color:var(--ink)">Establishment</strong><br />Hearts International Hospital, Rawalpindi</div>
+        <br />
+        <div><strong style="color:var(--ink)">Regulator</strong><br /><a href="https://www.phc.org.pk" target="_blank" rel="noopener">Punjab Healthcare Commission</a></div>
+        <br />
+        <div><strong style="color:var(--ink)">Incident</strong><br />Admitted 17:00, 26 Dec · died 27 Dec 2025</div>
+      </div>
+    </div>
+    <div class="legal">
+      <span>Prepared by the family · A personal account submitted for regulatory review and reform.</span>
+      <span>© 2026 · In loving memory · #TheChange</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  if (location.hash) { history.replaceState(null, '', location.pathname); }
+  window.scrollTo(0, 0);
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  document.getElementById('menuBtn')?.addEventListener('click',()=>{
+    document.getElementById('accountable').scrollIntoView({behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
