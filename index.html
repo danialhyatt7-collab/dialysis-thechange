@@ -70,10 +70,17 @@
   .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
   .brand{display:flex;align-items:center;gap:13px;font-family:var(--display);font-weight:800;letter-spacing:.06em;font-size:.92rem}
   .brand .mark{
-    width:30px;height:30px;border-radius:8px;flex:0 0 auto;
+    width:32px;height:32px;border-radius:9px;flex:0 0 auto;
     background:linear-gradient(135deg,var(--amber),var(--ember));
     box-shadow:0 0 18px rgba(240,167,60,.45);
-    display:grid;place-items:center;color:#1a0f06;font-weight:800;font-size:.85rem;
+    display:grid;place-items:center;
+    animation:markbreath 7.5s ease-in-out infinite;
+  }
+  .brand .mark svg{width:20px;height:20px;display:block}
+  .brand .mark svg path{fill:none;stroke:#1a0f06;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  @keyframes markbreath{
+    0%,100%{box-shadow:0 0 12px rgba(240,167,60,.3)}
+    50%{box-shadow:0 0 22px rgba(240,167,60,.6)}
   }
   .brand small{display:block;font-weight:500;font-size:.6rem;letter-spacing:.32em;color:var(--faint);text-transform:uppercase}
   .nav-links{display:flex;gap:30px;list-style:none}
@@ -86,22 +93,52 @@
   .nav-cta:hover{border-color:var(--amber);box-shadow:0 0 20px rgba(240,167,60,.22);color:var(--amber)}
   .menu-btn{display:none;background:none;border:0;color:var(--ink);font-size:1.5rem;cursor:pointer}
 
-  /* ---------- hero ---------- */
-  .hero{position:relative;padding:96px 0 70px}
+  /* ---------- hero (mobile-first, centered) ---------- */
+  .hero{position:relative;padding:40px 0 50px;text-align:center}
+  .hero-inner{display:flex;flex-direction:column;align-items:center}
+
+  /* breathing memorial mark — slow, somber, lottie-style loop */
+  .hero-mark{
+    width:min(300px,76vw);aspect-ratio:1;margin:0 auto 14px;
+    filter:drop-shadow(0 0 28px rgba(240,167,60,.22));
+  }
+  .hero-svg{width:100%;height:100%;display:block;overflow:visible}
+  .ripple{transform-box:fill-box;transform-origin:center;opacity:.3}
+  .r1{animation:ripple 7.5s ease-in-out infinite}
+  .r2{animation:ripple 7.5s ease-in-out infinite .95s}
+  .r3{animation:ripple 7.5s ease-in-out infinite 1.9s}
+  .glow,.breathe-heart{transform-box:fill-box;transform-origin:center;animation:breathe 7.5s ease-in-out infinite}
+  @keyframes breathe{
+    0%,100%{transform:scale(.93);opacity:.8}
+    48%,52%{transform:scale(1.06);opacity:1}
+  }
+  @keyframes ripple{
+    0%{transform:scale(.66);opacity:0}
+    22%{opacity:.42}
+    100%{transform:scale(1.14);opacity:0}
+  }
+
   .file-tab{
     display:inline-flex;align-items:center;gap:12px;font-family:var(--display);font-weight:600;
-    font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--amber);
-    border:1px solid var(--panel-line);border-radius:40px;padding:8px 16px;margin-bottom:26px;
+    font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);
+    border:1px solid var(--panel-line);border-radius:40px;padding:8px 16px;margin-bottom:22px;
   }
   .file-tab .pip{width:8px;height:8px;border-radius:50%;background:var(--ember);box-shadow:0 0 10px var(--ember)}
   .hero h1{
-    font-family:var(--serif);font-weight:500;line-height:1.06;
-    font-size:clamp(2.4rem,6.2vw,4.7rem);letter-spacing:-.01em;max-width:16ch;
+    font-family:var(--serif);font-weight:500;line-height:1.08;
+    font-size:clamp(2rem,8vw,4.7rem);letter-spacing:-.01em;max-width:18ch;margin:0 auto;
   }
   .hero h1 em{font-style:italic;color:var(--amber-soft)}
-  .hero p.lead{max-width:60ch;color:var(--muted);font-size:1.08rem;margin-top:26px}
-  .hero .meta{margin-top:26px;color:var(--faint);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-family:var(--display);font-weight:600}
-  .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+  .hero p.lead{max-width:60ch;color:var(--muted);font-size:1.04rem;margin:24px auto 0}
+  .hero .meta{margin-top:24px;color:var(--faint);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-family:var(--display);font-weight:600}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:34px;width:100%}
+  .actions .btn{flex:1 1 auto;justify-content:center;max-width:320px}
+
+  @media(min-width:760px){
+    .hero{padding:72px 0 66px}
+    .hero-mark{width:320px}
+    .actions .btn{flex:0 0 auto}
+  }
   .btn{
     font-family:var(--display);font-weight:600;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
     padding:15px 26px;border-radius:9px;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:10px;
@@ -228,7 +265,9 @@
 <header class="site">
   <div class="wrap nav">
     <div class="brand">
-      <span class="mark">TC</span>
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M2 12.5H6.5L8.5 6 12 18.5 14.5 10.5 16 13H22"/></svg>
+      </span>
       <span>THE&nbsp;CHANGE<small>Patient-Safety Dossier</small></span>
     </div>
     <ul class="nav-links">
@@ -244,7 +283,31 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="wrap reveal">
+  <div class="wrap hero-inner reveal">
+    <div class="hero-mark">
+      <svg class="hero-svg" viewBox="0 0 240 240" role="img" aria-label="A slowly breathing memorial mark in remembrance">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffd27d"/>
+            <stop offset="1" stop-color="#e2603f"/>
+          </linearGradient>
+          <radialGradient id="core" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="rgba(240,167,60,.5)"/>
+            <stop offset="100%" stop-color="rgba(240,167,60,0)"/>
+          </radialGradient>
+        </defs>
+        <circle class="ripple r3" cx="120" cy="120" r="110" fill="none" stroke="url(#g1)" stroke-width="1.1"/>
+        <circle class="ripple r2" cx="120" cy="120" r="86" fill="none" stroke="url(#g1)" stroke-width="1.3"/>
+        <circle class="ripple r1" cx="120" cy="120" r="62" fill="none" stroke="url(#g1)" stroke-width="1.5"/>
+        <circle class="glow" cx="120" cy="120" r="72" fill="url(#core)"/>
+        <g class="breathe-heart">
+          <g transform="translate(120,118) scale(3.4) translate(-12,-12)">
+            <path d="M12 21s-7-4.4-9.4-8.6C.9 9.6 2.4 6 5.8 6 8 6 9.6 7.2 12 9.6 14.4 7.2 16 6 18.2 6c3.4 0 4.9 3.6 3.2 6.4C19 16.6 12 21 12 21z"
+              fill="none" stroke="url(#g1)" stroke-width="1.3" stroke-linejoin="round"/>
+          </g>
+        </g>
+      </svg>
+    </div>
     <div class="file-tab"><span class="pip"></span> Case dossier · Preventable death · 27 Dec 2025</div>
     <h1>It was not bad luck. It was a <em>chain of decisions</em> — and every link had a name.</h1>
     <p class="lead">A patient arrived in a 7/7 emergency and was admitted under a physician who already knew
