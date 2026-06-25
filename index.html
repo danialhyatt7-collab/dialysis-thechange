@@ -215,11 +215,11 @@
   .spec .row:last-child{border-bottom:0}
   .spec .row span:first-child{color:var(--faint)}
   .spec .row span:last-child{color:var(--ink);font-weight:600;text-align:right}
-  .chain-of-custody{background:linear-gradient(135deg,rgba(48,34,14,.45),rgba(28,26,30,.45));border:1px solid rgba(240,167,60,.28);border-radius:16px;padding:28px}
-  .chain-of-custody .tag{display:block;font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+  .chain-of-custody{background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;padding:28px;backdrop-filter:blur(8px)}
+  .chain-of-custody .tag{display:block;font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
   .chain-of-custody ul{list-style:none;display:grid;gap:12px}
   .chain-of-custody li{color:var(--muted);font-size:.95rem;padding-left:26px;position:relative}
-  .chain-of-custody li::before{content:"▸";position:absolute;left:0;color:var(--amber)}
+  .chain-of-custody li::before{content:"▸";position:absolute;left:0;color:var(--faint)}
   .chain-of-custody li b{color:var(--ink);font-weight:600}
 
   /* SOP roadmap */
@@ -449,32 +449,30 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="kicker k-amber">Requirement: Complete Footage</span>
-      <h2>The full recording — requested in good faith, not as an accusation</h2>
-      <p>We're grateful the hospital confirmed the footage exists and allowed us to view it. We're simply
-        asking for a complete copy. A full, unedited record is the hospital's ally as much as ours — it can
-        show what was done well, settle honest doubts with facts, and protect good staff from rumour. In that
-        same spirit of openness, we ask for the whole, continuous recording.</p>
+      <h2>The complete recording — from CVP connection to the end of the session.</h2>
+      <p>The footage exists and has been viewed. This is a request for a complete, continuous copy of the
+        recording covering the entire event, provided to the family and to the Punjab Healthcare Commission.</p>
     </div>
 
     <div class="spec reveal">
       <div class="sheet">
-        <h3>What we're kindly requesting</h3>
+        <h3>Footage requested</h3>
         <div class="row"><span>Start point</span><span>Moment of CVP connection</span></div>
         <div class="row"><span>End point</span><span>End of the session / resuscitation</span></div>
         <div class="row"><span>Continuity</span><span>Unbroken — no gaps or cuts</span></div>
         <div class="row"><span>Cameras</span><span>All angles covering the bed &amp; bay</span></div>
         <div class="row"><span>Audio</span><span>Included where recorded</span></div>
         <div class="row"><span>Metadata</span><span>Original timestamps intact</span></div>
-        <div class="row"><span>Format</span><span>A simple copy the family can keep</span></div>
-        <div class="row"><span>Shared with</span><span>Family &amp; Punjab Healthcare Commission</span></div>
+        <div class="row"><span>Format</span><span>Complete, unedited copy</span></div>
+        <div class="row"><span>Provided to</span><span>Family &amp; Punjab Healthcare Commission</span></div>
       </div>
       <div class="chain-of-custody">
-        <span class="tag">Why sharing it helps the hospital</span>
+        <span class="tag">The request, in detail</span>
         <ul>
-          <li><b>It protects everyone.</b> A complete record safeguards the staff and the hospital just as much as it does the family.</li>
-          <li><b>Please preserve it.</b> A gentle request to keep the footage safe so nothing is lost to the routine recording cycle.</li>
-          <li><b>A copy, in good faith.</b> Sharing a copy with the family — and the Commission — quietly shows there is nothing to hide.</li>
-          <li><b>It clears the air.</b> An unedited file with original timestamps replaces speculation with facts, and rumour with trust.</li>
+          <li><b>Preservation.</b> The footage is kept from being overwritten on the standard retention cycle.</li>
+          <li><b>A copy.</b> A complete copy is provided to the family and to the Commission.</li>
+          <li><b>Integrity.</b> Original timestamps retained, with no edits or gaps.</li>
+          <li><b>Review.</b> The full recording is made available for independent review.</li>
         </ul>
       </div>
     </div>
