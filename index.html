@@ -604,7 +604,10 @@
     [356,60],[363,54],[370,64],[377,52],[384,66],[391,60],         // beat 4 — faint, irregular
     [430,60],[588,60]                                              // flatline — the loss
   ];
-  var Z=V.map(function(){return [0,0];});
+  // separate tangent arrays for i and o — lottie mutates these in place,
+  // so sharing one reference corrupts the path into a scribble
+  var Zi=V.map(function(){return [0,0];});
+  var Zo=V.map(function(){return [0,0];});
   var ecg = {
     "v":"5.7.0","fr":30,"ip":0,"op":180,"w":600,"h":120,"nm":"ecg-story","ddd":0,"assets":[],
     "layers":[
@@ -617,7 +620,7 @@
         "ao":0,
         "shapes":[
           {"ty":"gr","it":[
-            {"ty":"sh","nm":"path","ks":{"a":0,"k":{"c":false,"i":Z,"o":Z,"v":V}}},
+            {"ty":"sh","nm":"path","ks":{"a":0,"k":{"c":false,"i":Zi,"o":Zo,"v":V}}},
             {"ty":"st","nm":"stroke","lc":2,"lj":2,"ml":4,
               "o":{"a":0,"k":100},
               "w":{"a":0,"k":2.8},
