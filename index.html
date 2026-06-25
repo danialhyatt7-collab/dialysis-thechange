@@ -249,7 +249,7 @@
 <header class="site">
   <div class="wrap nav">
     <div class="brand">
-      <div id="logoLottie" class="logo-lottie" role="img" aria-label="A heartbeat monitor tracing a pulse that fades to a flatline"></div>
+      <div id="logoLottie" class="logo-lottie" role="img" aria-label="A heart monitor tracing the rhythm of hypovolemic shock — racing then weakening into cardiac arrest and a flatline"></div>
     </div>
     <ul class="nav-links">
       <li><a href="#negligence">Negligence</a></li>
@@ -593,16 +593,21 @@
   var ez_i={"x":[0.45],"y":[1]}, ez_o={"x":[0.55],"y":[0]};
   // the story, left to right: two steady beats (admission) ->
   // a weaker beat -> a faint, irregular flutter (deterioration) -> a long flatline (the loss)
+  // the clinical arc, left to right:
+  // normal sinus -> tachycardia with falling amplitude (hypovolemic shock) ->
+  // irregular weak complexes -> a last wide agonal beat (arrest) -> asystole flatline (death)
   var V=[
-    [12,60],[72,60],
-    [80,60],[88,46],[96,60],[106,18],[116,98],[126,60],            // beat 1 — strong
-    [150,60],
-    [176,60],[184,46],[192,60],[202,18],[212,98],[222,60],         // beat 2 — strong
-    [248,60],
-    [272,60],[280,52],[287,60],[295,38],[303,82],[311,60],         // beat 3 — weaker
-    [336,60],
-    [356,60],[363,54],[370,64],[377,52],[384,66],[391,60],         // beat 4 — faint, irregular
-    [430,60],[588,60]                                              // flatline — the loss
+    [10,60],[50,60],
+    [58,60],[65,54],[72,60],[80,22],[88,95],[96,60],[116,60],      // normal beat 1
+    [124,60],[131,54],[138,60],[146,22],[154,95],[162,60],[182,60],// normal beat 2
+    [196,60],[202,28],[209,88],[216,60],                            // tachy 1
+    [228,60],[234,30],[241,86],[248,60],                            // tachy 2 (closer)
+    [258,60],[264,33],[271,83],[278,60],                            // tachy 3 (closer/smaller)
+    [287,60],[293,37],[300,80],[307,60],                            // tachy 4 (smaller)
+    [318,60],[326,50],[333,69],[342,52],[350,67],[358,60],          // irregular, weak
+    [380,60],[395,52],[412,68],[428,60],                            // agonal — wide, weak (arrest)
+    [452,60],[460,57],[468,61],[476,60],                            // final faint blip
+    [500,60],[590,60]                                               // asystole flatline (death)
   ];
   // separate tangent arrays for i and o — lottie mutates these in place,
   // so sharing one reference corrupts the path into a scribble
