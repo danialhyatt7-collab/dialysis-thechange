@@ -103,13 +103,13 @@
   .file-tab{
     display:inline-flex;align-items:center;gap:12px;font-family:var(--display);font-weight:600;
     font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);
-    border:1px solid var(--panel-line);border-radius:40px;padding:8px 16px;margin-bottom:22px;
+    margin-bottom:22px;
   }
-  /* pulsing circle — mobile-first; a calm radar ping */
-  .ping{position:relative;width:11px;height:11px;flex:0 0 auto}
+  /* pulsing circle — mobile-first radar ping; shared by eyebrow + timeline */
+  .ping{position:relative;width:11px;height:11px;flex:0 0 auto;--d:0s}
   .ping .core{position:absolute;inset:3px;border-radius:50%;background:var(--ember);box-shadow:0 0 8px var(--ember)}
-  .ping::before,.ping::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--ember);transform:scale(.4);opacity:0;animation:ping 3.6s cubic-bezier(.2,.6,.2,1) infinite}
-  .ping::after{animation-delay:1.8s}
+  .ping::before,.ping::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--ember);transform:scale(.4);opacity:0;animation:ping 3.6s cubic-bezier(.2,.6,.2,1) infinite;animation-delay:var(--d)}
+  .ping::after{animation-delay:calc(var(--d) + 1.8s)}
   @keyframes ping{0%{transform:scale(.4);opacity:.85}70%{opacity:0}100%{transform:scale(2.4);opacity:0}}
   .hero h1{
     font-family:var(--serif);font-weight:500;line-height:1.08;
@@ -162,15 +162,12 @@
   .steps{display:grid;gap:0;border-left:2px solid rgba(240,167,60,.35);margin-left:8px}
   .step{position:relative;padding:0 0 30px 30px}
   .step:last-child{padding-bottom:0}
-  .step::before{content:"";position:absolute;left:-11px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--amber);z-index:2}
-  .step.bad::before{border-color:var(--ember);background:var(--ember)}
-  /* subtle pulsing ring on each node, centred on the line */
-  .step.bad::after{content:"";position:absolute;left:-11px;top:5px;width:14px;height:14px;border-radius:50%;border:1.5px solid var(--ember);z-index:1;transform-origin:50% 50%;animation:tlpulse 4.5s cubic-bezier(.25,.6,.3,1) infinite}
-  .step.bad:nth-child(1)::after{animation-delay:0s}
-  .step.bad:nth-child(2)::after{animation-delay:1.1s}
-  .step.bad:nth-child(3)::after{animation-delay:2.2s}
-  .step.bad:nth-child(4)::after{animation-delay:3.3s}
-  @keyframes tlpulse{0%{transform:scale(.85);opacity:.5}75%,100%{transform:scale(1.9);opacity:0}}
+  /* timeline node = the same ping as the eyebrow, centred on the line */
+  .step .ping{position:absolute;left:-6.5px;top:6px;z-index:2}
+  .step:nth-child(1) .ping{--d:0s}
+  .step:nth-child(2) .ping{--d:.9s}
+  .step:nth-child(3) .ping{--d:1.8s}
+  .step:nth-child(4) .ping{--d:2.7s}
   .step .t{font-family:var(--display);font-weight:700;font-size:.82rem;letter-spacing:.04em;color:var(--amber)}
   .step.bad .t{color:var(--ember)}
   .step .b{color:var(--muted);margin-top:6px;font-size:.98rem}
@@ -318,22 +315,26 @@
     <div class="panel reveal" style="margin-bottom:34px">
       <div class="steps">
         <div class="step bad">
+          <span class="ping"><span class="core"></span></span>
           <div class="t">17:00 · 26 Dec — Admission without disclosure</div>
           <div class="b">A critically ill 7/7 patient is admitted on the promise of <b>urgent</b> dialysis. The
             admitting physician already knows the nephrologist has left the city — and does not say so, does
             not arrange a covering specialist, and does not offer transfer.</div>
         </div>
         <div class="step bad">
+          <span class="ping"><span class="core"></span></span>
           <div class="t">Overnight — No coverage, no contingency</div>
           <div class="b">Through the most dangerous hours the patient has no nephrology cover and no emergency
             dialysis pathway. Time-critical treatment simply waits for one person to drive back.</div>
         </div>
         <div class="step bad">
+          <span class="ping"><span class="core"></span></span>
           <div class="t">09:00 · 27 Dec — Specialist returns, treatment still waits</div>
           <div class="b">The nephrologist is back in the building, yet dialysis does not begin. <b>Four more
             hours</b> pass with the patient still in a 7/7 emergency.</div>
         </div>
         <div class="step bad">
+          <span class="ping"><span class="core"></span></span>
           <div class="t">13:00 · 27 Dec — Treatment starts, supervision ends</div>
           <div class="b">The nephrologist reviews the file for about a minute and leaves. The technician starts
             the machine and leaves within ~2 minutes. Visible bleeding goes unrecognised; the patient
