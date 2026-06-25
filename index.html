@@ -208,19 +208,13 @@
   .step-no{font-family:var(--serif);font-weight:500;font-size:1.6rem;color:var(--faint);min-width:1.6ch}
 
   /* footage spec sheet */
-  .spec{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;align-items:start}
+  .spec{display:grid;grid-template-columns:1fr;gap:22px;align-items:start;max-width:640px}
   .spec .sheet{background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;overflow:hidden}
   .spec .sheet h3{font-family:var(--display);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);padding:20px 24px;border-bottom:1px solid var(--panel-line)}
   .spec .row{display:flex;justify-content:space-between;gap:16px;padding:15px 24px;border-bottom:1px solid var(--line);font-size:.94rem}
   .spec .row:last-child{border-bottom:0}
   .spec .row span:first-child{color:var(--faint)}
   .spec .row span:last-child{color:var(--ink);font-weight:600;text-align:right}
-  .chain-of-custody{background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;padding:28px;backdrop-filter:blur(8px)}
-  .chain-of-custody .tag{display:block;font-family:var(--display);font-weight:700;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-  .chain-of-custody ul{list-style:none;display:grid;gap:12px}
-  .chain-of-custody li{color:var(--muted);font-size:.95rem;padding-left:26px;position:relative}
-  .chain-of-custody li::before{content:"▸";position:absolute;left:0;color:var(--faint)}
-  .chain-of-custody li b{color:var(--ink);font-weight:600}
 
   /* SOP roadmap */
   .sops{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
@@ -465,15 +459,6 @@
         <div class="row"><span>Metadata</span><span>Original timestamps intact</span></div>
         <div class="row"><span>Format</span><span>Complete, unedited copy</span></div>
         <div class="row"><span>Provided to</span><span>Family &amp; Punjab Healthcare Commission</span></div>
-      </div>
-      <div class="chain-of-custody">
-        <span class="tag">The request, in detail</span>
-        <ul>
-          <li><b>Preservation.</b> The footage is kept from being overwritten on the standard retention cycle.</li>
-          <li><b>A copy.</b> A complete copy is provided to the family and to the Commission.</li>
-          <li><b>Integrity.</b> Original timestamps retained, with no edits or gaps.</li>
-          <li><b>Review.</b> The full recording is made available for independent review.</li>
-        </ul>
       </div>
     </div>
   </div>
