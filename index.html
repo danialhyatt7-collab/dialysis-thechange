@@ -176,12 +176,16 @@
   .steps{display:grid;gap:0;border-left:2px solid rgba(240,167,60,.35);margin-left:8px}
   .step{position:relative;padding:0 0 30px 30px}
   .step:last-child{padding-bottom:0}
-  /* timeline node = the same ping as the eyebrow, centred on the line */
-  .step .ping{position:absolute;left:-6.5px;top:6px;z-index:2}
+  /* timeline node = the eyebrow ping, centred on the line, with a larger (4x) blink */
+  .step .ping{position:absolute;left:-6.5px;top:6px;z-index:0}
+  .step .ping .core{z-index:1}
+  .step .ping::before,.step .ping::after{animation-name:ping-lg}
+  @keyframes ping-lg{0%{transform:scale(.4);opacity:.8}70%{opacity:0}100%{transform:scale(9.6);opacity:0}}
   .step:nth-child(1) .ping{--d:0s}
   .step:nth-child(2) .ping{--d:.9s}
   .step:nth-child(3) .ping{--d:1.8s}
   .step:nth-child(4) .ping{--d:2.7s}
+  .step .t,.step .b{position:relative;z-index:1}
   .step .t{font-family:var(--display);font-weight:700;font-size:.82rem;letter-spacing:.04em;color:var(--amber)}
   .step.bad .t{color:var(--ember)}
   .step .b{color:var(--muted);margin-top:6px;font-size:.98rem}
@@ -578,6 +582,14 @@
         <div><h4>A good name</h4><p>Hospitals remembered for how honestly they faced their worst day earn the loyalty no marketing can buy.</p></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- CLOSING STATEMENT -->
+<section class="block" id="closing" style="padding:60px 0 20px">
+  <div class="wrap reveal">
+    <p style="font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,3.6vw,2.3rem);line-height:1.45;color:var(--ink);max-width:24ch">
+      Who are we to forgive this matter. It is between you, your Allah, and the deceased.</p>
   </div>
 </section>
 
