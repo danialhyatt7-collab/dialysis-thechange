@@ -19,6 +19,7 @@
 <meta name="twitter:title" content="A Father. An Elder. A Preventable Loss." />
 <meta name="twitter:description" content="In memory of a father and an elder, lost during dialysis. A respectful account, and the safeguards now being strengthened." />
 <meta name="twitter:image" content="https://danialhyatt7-collab.github.io/dialysis-thechange/thumbnail.jpg" />
+<link rel="image_src" href="https://danialhyatt7-collab.github.io/dialysis-thechange/thumbnail.jpg" />
 
 <title>A Father. An Elder. A Preventable Loss | In Memory, Hearts International Hospital, Rawalpindi</title>
 <meta name="description" content="In memory of a father and an elder, lost during dialysis on 27 December 2025 in the care of senior, experienced doctors. A respectful account of that afternoon and the safeguards now being strengthened so no other family lives it." />
@@ -149,9 +150,7 @@
     padding:15px 26px;border-radius:9px;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:10px;
   }
   .btn-primary{background:linear-gradient(135deg,var(--amber),var(--ember));color:#1a0f06;font-weight:700;box-shadow:0 10px 30px rgba(226,96,63,.3)}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(226,96,63,.45)}
   .btn-ghost{border:1px solid var(--panel-line);color:var(--ink)}
-  .btn-ghost:hover{border-color:var(--emerald);color:var(--emerald)}
 
   /* ---------- key-fact rail ---------- */
   .rail{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(17,19,25,.5);backdrop-filter:blur(6px)}
@@ -265,10 +264,6 @@
   .kicker::before{width:12px;transition:width .6s ease .15s}
   .reveal.in .kicker::before{width:26px}
 
-  /* buttons: a soft sheen sweeps across on hover */
-  .btn,.nav-cta{position:relative;overflow:hidden}
-  .btn::after{content:"";position:absolute;top:0;left:-130%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.16),transparent);transform:skewX(-18deg);transition:left .65s ease;pointer-events:none}
-  .btn:hover::after{left:150%}
 
   /* fact tiles: gentle lift and number glow */
   .fact{transition:transform .3s ease,background .3s ease}
@@ -293,7 +288,7 @@
   .who:hover{transform:translateY(-2px);border-color:rgba(240,167,60,.32)}
   .who .step-no{transition:color .3s ease}
   .who:hover .step-no{color:var(--amber)}
-  .who-sys:hover{border-color:rgba(26,167,196,.4)}
+  .who-sys:hover{border-color:var(--panel-line)}
   .who-sys:hover .step-no{color:var(--accent-2)}
 
   @media(max-width:880px){
@@ -369,8 +364,8 @@
       feeling like news. Wards grow used to it. The danger is not only the loss itself, but how quickly we
       let it become normal, how easily grief turns into routine and routine turns into silence.
       <br /><br />
-      This page refuses that quiet. He was not a statistic. He was a father, an elder, a whole life loved by
-      the people he left behind. The way out of routine grief is routine care: safety made so ordinary, so
+      This page refuses that quiet. He was a father, an elder, a whole life loved by the people he left
+      behind. The way out of routine grief is routine care: safety made so ordinary, so
       habitual, that the next family never has to write a page like this one. <strong>Remember the person, and
       the procedures will follow.</strong>
     </div>
@@ -627,10 +622,13 @@
 </section>
 
 <!-- CLOSING STATEMENT -->
-<section class="block" id="closing" style="padding:60px 0 20px">
+<section class="block" id="closing" style="padding:72px 0 28px">
   <div class="wrap reveal">
-    <p style="font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,3.6vw,2.3rem);line-height:1.45;color:var(--ink);max-width:24ch">
-      Who are we to forgive this matter. It is between you, your Allah, and the deceased.</p>
+    <div style="max-width:32ch;border-top:1px solid var(--line);padding-top:34px">
+      <div style="font-family:var(--display);font-weight:700;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--faint);margin-bottom:20px">A final word</div>
+      <p style="font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,4vw,2.5rem);line-height:1.4;color:var(--ink);margin:0">
+        Forgiveness is not ours to give. It rests between you, <span style="color:var(--amber-soft)">your Allah</span>, and the deceased.</p>
+    </div>
   </div>
 </section>
 
@@ -660,7 +658,7 @@
     </div>
     <div class="legal">
       <span>Prepared by the family · Submitted for regulatory review and reform.</span>
-      <span>© 2026 · #TheChange</span>
+      <span>© 2026</span>
     </div>
   </div>
 </footer>
