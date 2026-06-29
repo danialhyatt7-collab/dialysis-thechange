@@ -97,12 +97,12 @@
   }
   .nav-cta:hover{border-color:var(--amber);box-shadow:0 0 20px rgba(240,167,60,.22);color:var(--amber)}
   /* modern two-line hamburger, width matched to the logo */
-  .menu-btn{display:none;flex-direction:column;justify-content:center;gap:9px;width:176px;height:42px;padding:0;background:none;border:0;cursor:pointer}
+  .menu-btn{display:none;flex-direction:column;justify-content:center;gap:6px;width:34px;padding:4px 0;background:none;border:0;cursor:pointer}
   .menu-btn span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;transition:width .3s ease,background .3s ease,transform .3s ease,opacity .3s ease}
   .menu-btn span:nth-child(2){width:62%;margin-left:auto}
   .menu-btn.open span{background:var(--amber)}
-  .menu-btn.open span:nth-child(1){transform:translateY(5.5px)}
-  .menu-btn.open span:nth-child(2){width:100%;transform:translateY(-5.5px)}
+  .menu-btn.open span:nth-child(1){transform:translateY(4px)}
+  .menu-btn.open span:nth-child(2){width:100%;transform:translateY(-4px)}
 
   /* mobile dropdown menu */
   .mobile-menu{display:none;padding-top:6px;padding-bottom:14px}
@@ -318,7 +318,7 @@
     .foot-grid{grid-template-columns:1fr}
   }
   @media(max-width:480px){
-    .menu-btn{width:132px;height:36px;gap:8px}
+    .menu-btn{width:30px;gap:6px}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
