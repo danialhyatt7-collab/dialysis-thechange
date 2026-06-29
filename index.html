@@ -96,7 +96,19 @@
     border:1px solid var(--panel-line);border-radius:8px;padding:11px 20px;color:var(--ink);transition:.25s;
   }
   .nav-cta:hover{border-color:var(--amber);box-shadow:0 0 20px rgba(240,167,60,.22);color:var(--amber)}
-  .menu-btn{display:none;background:none;border:0;color:var(--ink);font-size:1.5rem;cursor:pointer}
+  /* modern two-line hamburger, width matched to the logo */
+  .menu-btn{display:none;flex-direction:column;justify-content:center;gap:9px;width:176px;height:42px;padding:0;background:none;border:0;cursor:pointer}
+  .menu-btn span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;transition:width .3s ease,background .3s ease,transform .3s ease,opacity .3s ease}
+  .menu-btn span:nth-child(2){width:62%;margin-left:auto}
+  .menu-btn.open span{background:var(--amber)}
+  .menu-btn.open span:nth-child(1){transform:translateY(5.5px)}
+  .menu-btn.open span:nth-child(2){width:100%;transform:translateY(-5.5px)}
+
+  /* mobile dropdown menu */
+  .mobile-menu{display:none;padding-top:6px;padding-bottom:14px}
+  .mobile-menu a{display:flex;align-items:baseline;gap:16px;font-family:var(--display);font-weight:600;font-size:1.15rem;letter-spacing:.04em;color:var(--ink);padding:18px 2px;border-top:1px solid var(--line);transition:color .25s ease,padding-left .25s ease}
+  .mobile-menu a:active,.mobile-menu a:hover{color:var(--amber);padding-left:8px}
+  .mobile-menu .mi-n{font-size:.72rem;letter-spacing:.18em;color:var(--faint);font-weight:700}
 
   /* ---------- hero (left-aligned; reference-style pulsing ring, orange) ---------- */
   .hero{position:relative;padding:72px 0 70px;overflow:hidden}
@@ -296,13 +308,17 @@
 
   @media(max-width:880px){
     .nav-links,.nav-cta{display:none}
-    .menu-btn{display:block}
+    .menu-btn{display:flex}
+    .mobile-menu.open{display:block}
     .rail .grid{grid-template-columns:repeat(2,1fr)}
     .fact:nth-child(2){border-right:0}
     .analysis,.sops,.spec,.trust .bgrid{grid-template-columns:1fr}
     .who{grid-template-columns:auto 1fr;gap:14px}
     .who .badge{grid-column:1 / -1}
     .foot-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:480px){
+    .menu-btn{width:132px;height:36px;gap:8px}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
@@ -323,8 +339,13 @@
       <li><a href="#practices">Practices &amp; SOPs</a></li>
     </ul>
     <a class="nav-cta" href="#practices">The safeguards →</a>
-    <button class="menu-btn" aria-label="Menu" id="menuBtn">≡</button>
+    <button class="menu-btn" aria-label="Menu" aria-expanded="false" id="menuBtn"><span></span><span></span></button>
   </div>
+  <nav class="wrap mobile-menu" id="mobileMenu" aria-label="Sections">
+    <a href="#negligence"><span class="mi-n">01</span> Negligence</a>
+    <a href="#accountable"><span class="mi-n">02</span> Duty of care</a>
+    <a href="#practices"><span class="mi-n">03</span> Practices &amp; SOPs</a>
+  </nav>
 </header>
 
 <!-- HERO -->
@@ -661,9 +682,15 @@
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  document.getElementById('menuBtn')?.addEventListener('click',()=>{
-    document.getElementById('accountable').scrollIntoView({behavior:'smooth'});
-  });
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function setMenu(open){
+    menuBtn.classList.toggle('open', open);
+    mobileMenu.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  menuBtn?.addEventListener('click', ()=> setMenu(!menuBtn.classList.contains('open')));
+  mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> setMenu(false)));
 </script>
 
 <!-- Lottie: scenario animation - strong beats that weaken, turn irregular, then flatline.
